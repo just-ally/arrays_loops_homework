@@ -11,14 +11,16 @@ stops.index("Linlithgow")
 # 5. Remove `"Livingston"` from the array using its name
 stops.delete("Livingston")
 # 6. Delete `"Cumbernauld"` from the array by index
-stops.delete_at(2)
+index = stops.index("Cumbernauld")
+stops.delete_at(index)
 # 7. How many stops there are in the array?
 stops.count
 # 8. How many ways can we return `"Falkirk High"` from the array?
-stops.fetch(2)
-stops.fetch(-5)
-stops[2]
-stops[-5]
+index = stops.index("Falkirk High")
+stops.fetch(index)
+stops.fetch(index)
+stops[index]
+stops[index]
 stops.slice(2..2)
 # 9. Reverse the positions of the stops in the array
 p stops.reverse

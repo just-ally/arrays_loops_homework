@@ -54,6 +54,13 @@ users = {
   }
 }
 
+# #Write cheat sheet of the data structure you are working with
+# users = Hash
+# user = Hash
+# lottery_numbers = array
+# pets = array of hashes
+# pet = hash
+
 # 1. Get Jonathan's Twitter handle (i.e. the string `"jonnyt"`)
 p users["Jonathan"][:twitter]
 # 2. Get Erik's hometown
@@ -65,12 +72,31 @@ p users["Avril"][:pets][0][:species]
 # 5. Get the smallest of Erik's lottery numbers
 Erik_array = users["Erik"][:lottery_numbers].sort
 p Erik_array[0]
+
+#OR
+p users["Erik"][:lottery_numbers].min
 # 6. Return an array of Avril's lottery numbers that are even
-for item in users["Avril"][:lottery_numbers]
-  if item % 2 == 0
-    p item
+even_number = []
+# can't get this one to work
+# for number in users["Avril"][:lottery_numbers]
+#   even_number.push(number if number.even?)
+# end
+
+for number in users["Avril"][:lottery_numbers]
+  if number.even?()
+    # .even? is a numerator method, therefore not in array list of methods
+    even_number.push(number)
   end
 end
+#
+for number in users["Avril"][:lottery_numbers]
+  if number % 2 == 0
+    even_number.push(number)
+  end
+end
+
+p even_number
+
 # 7. Erik is one lottery number short! Add the number `7` to be included in his lottery numbers
 p users["Erik"][:lottery_numbers].push(7)
 # 8. Change Erik's hometown to Edinburgh
@@ -94,4 +120,16 @@ users.store("Ally", {
 }
 )
 
-p users
+users["Ally"] = {
+  :twitter => "AllyAlly",
+  :lottery_numbers => [1, 2, 3, 4, 5, 6],
+  :home_town => "Glasgow",
+  :pets => [
+    {
+      :name => "coco",
+      :species => "pig"
+    }
+  ]
+}
+
+ users
